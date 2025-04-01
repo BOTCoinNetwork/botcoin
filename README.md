@@ -1,9 +1,8 @@
-<img width="75px" height="75px" align="right" alt="Monet Logo" src="docs/_static/monet_logo.png" title="Monetd"/>
+<img width="75px" height="75px" align="right" alt="Monet Logo" src="docs/_static/Botcoin_logo.png" title="Monetd"/>
 
-# Monetd
+# BOTCoin
 
-Monetd is the daemon component of the **Monet Toolchain**; a distributed
-smart-contract platform based on 
+BOTCoin uses peer-to-peer network system technology at the bottom layer, allowing intelligent robots (hereinafter referred to as BOT) to become autonomous nodes in the decentralized network. It also integrates BVM to implement hardware-level smart contract programming, allowing the robot's own data and programs to be executed safely and reliably. Based on the Hashgraph consensus algorithm, It is a Directed Acyclic Graph (DAG) . 
 [EVM-Lite](https://github.com/mosaicnetworks/evm-lite) and
 [Babble](https://github.com/mosaicnetworks/babble).
 

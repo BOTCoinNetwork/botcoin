@@ -28,20 +28,20 @@
 
 .. Cheat with a zero width image for vertical padding
 
-The Monet Toolchain
+The BOTCoin
 ===================
 
-The Monet Toolchain provides software to run and interact with a distributed
-smart-contract platform based on `EVM-Lite
-<https://github.com/mosaicnetworks/evm-lite>`__ and `Babble consensus
-<https://github.com/mosaicnetworks/babble>`__.
+BOTCoin uses peer-to-peer network system technology at the bottom layer, allowing intelligent robots to become autonomous nodes in the decentralized network. It also integrates BVM to implement hardware-level smart contract programming, allowing the robot's own data and programs to be executed safely and reliably. Based on the Hashgraph consensus algorithm, It is a Directed Acyclic Graph (DAG) .
 
-It underpins the `MONET Hub <https://monet.network/faq.html>`__, which is an
-important part of the `MONET project <https://monet.network/about.html>`__, but
-is licensed under the `MIT license
+The BOTCoin Network based on `BVM
+<https://github.com/BOTCoinNetwork/BVM>`__ and `Babble consensus
+<https://github.com/BOTCoinNetwork/babble>`__.
+
+but is licensed under the `MIT license
 <https://en.wikipedia.org/wiki/MIT_License>`__ and available for use in other
-projects. You can read more about MONET in the `whitepaper
-<http://bit.ly/monet-whitepaper>`__.
+projects. You can read more about BOTCoin in the `Whitepaper
+<https://botcoin.network/BOTCoin_en.pdf>`__ and `BOTCoin Hub
+<https://botcoin.network>`__.
 
 
 Quick Start

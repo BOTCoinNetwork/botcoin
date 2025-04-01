@@ -45,7 +45,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Monet Toolchain'
+project = u'BOTCoin Network'
 copyright = u'2017, Mosaic Networks'
 author = u'Mosaic Networks'
 
@@ -91,9 +91,9 @@ html_theme = 'alabaster'
 # documentation.
 #
 html_theme_options = {
-    'logo': 'monet_logo.png',
-    'github_user': 'mosaicnetworks',
-    'github_repo': 'monetd',
+    'logo': 'Botcoin_logo.png',
+    'github_user': 'BOTCoinNetwork',
+    'github_repo': 'BOTCoin',
     'github_button': 'true',
     'body_text_align': 'justify',
     'show_related': 'true',
