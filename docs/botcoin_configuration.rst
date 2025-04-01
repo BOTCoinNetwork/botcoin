@@ -1,18 +1,18 @@
-.. _monetd_configuration_rst:
+.. _botcoin_configuration_rst:
 
-Monetd Configuration
+Botcoin Configuration
 ====================
 
 All the configuration required to run a node is stored under a directory with a
-specific structure. By default, ``monetd`` will look for this directory in
-``$HOME/.monet/monetd-dir/`` [1]_ (on Linux), but it is possible to override 
+specific structure. By default, ``botcoin`` will look for this directory in
+``$HOME/.botcoin/botcoin-dir/`` [1]_ (on Linux), but it is possible to override 
 this with the ``--config`` flag.
 
 The directory must respect the following stucture:
 
 ::
   
-  .monet/monetd-config/
+  .botcoin/botcoin-config/
   ├── babble
   │   ├── peers.genesis.json
   │   ├── peers.json
@@ -22,8 +22,8 @@ The directory must respect the following stucture:
   └── monetd.toml
 
 You would not normally need to access these configuration files directly. The
-``monetd config`` tool provides a CLI interfaces to set up a network. The
-command ``monetd config location`` provides further details of the default 
+``botcoin config`` tool provides a CLI interfaces to set up a network. The
+command ``botcoin config location`` provides further details of the default 
 filepaths used for your instance.
 
 Eth
@@ -115,4 +115,4 @@ Example of a monet.toml file:
 
 .. [1] This location is for Linux instances. Mac and Windows uses a different
        path. The path for your instance can be ascertained with this command:
-       ``monetd config location``
+       ``botcoin config location``

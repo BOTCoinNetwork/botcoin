@@ -7,20 +7,20 @@ This section describes how to join an existing network that is already running,
 such as the one created in :ref:`quickstart_rst`.
 
 Here's a summary of the steps required to join an existing network built with
-the Monet Toolchain:
+the botcoin:
 
 .. code::
 
-    $ monetd keys new node1
-    $ monetd config pull [address]:[port] --key node1
-    $ monetcli poa nominate -h [address] -p [port] --from [node1 address] --pwd [password file for node1 key] --moniker node1 [node1 address]
+    $ botcoin keys new node1
+    $ botcoin config pull [address]:[port] --key node1
+    $ botcoincli poa nominate -h [address] -p [port] --from [node1 address] --pwd [password file for node1 key] --moniker node1 [node1 address]
 
     # wait to be accepted in the whitelist, which can be checked with
     $ monetcli poa whitelist
     # or
-    $ monetcli poa nomineelist
+    $ botcoincli poa nomineelist
 
-    $ monetd run
+    $ botcoin run
 
 Where [address] and [port] correspond to the endpoint of an existing peer in
 the network.
@@ -35,7 +35,7 @@ We need to generate a new key-pair for our account:
 
 .. code:: bash
 
-    $ monetd keys new node1
+    $ botcoin keys new node1
     Passphrase:
     Repeat passphrase:
     Address: 0x5a735fC1235ce1E60eb5f9B9BCacb643a9Da27F4
@@ -43,12 +43,12 @@ We need to generate a new key-pair for our account:
 Pull the Configuration From an Existing Node
 ---------------------------------------------
 
-We now pull the ``monetd`` configuration files from an existing peer. The
+We now pull the ``botcoin`` configuration files from an existing peer. The
 syntax for this command is:
 
 .. code:: bash
 
-    $ monetd config pull [peer] [--key] [--address]
+    $ botcoin config pull [peer] [--key] [--address]
 
 The peer parameter is the address/IP of an existing node on the network. The
 network's configuration is requested from this peer. If the address does not
@@ -58,7 +58,7 @@ We also need to specify the IP address of our own node. For a live network that
 would clearly be a public IP address, but for an exploratory testnet, we would
 recommend using an internal IP address. On Linux ``ifconfig`` will give you IP
 address information. This can be set by using the --address flag. If not
-specified ``monetd`` will pick the first non-loopback address.
+specified ``botcoin`` will pick the first non-loopback address.
 
 The ``--key`` parameter specifies the keyfile to use by moniker.
 
@@ -67,27 +67,27 @@ with the endpoint of the existing peer.
 
 .. code:: bash
 
-    $ monetd config pull 192.168.1.5:8080 --key node1
+    $ botcoin config pull 192.168.1.5:8080 --key node1
 
 Apply to Join the Network
 -------------------------
 
-If we tried to run ``monetd`` at this stage, it would not be allowed to join
+If we tried to run ``botcoin`` at this stage, it would not be allowed to join
 the other node because it isn't whitelisted yet. So we need to apply to the
 whitelist first.
 
-We do so with the ``monetcli poa nominate`` command. The syntax is:
+We do so with the ``botcoincli poa nominate`` command. The syntax is:
 
 .. code:: bash
 
-    $ monetcli poa nominate -h <existing node> --from <moniker> --moniker <nominee moniker> --pwd <passphrase file> <nominee address>
+    $ botcoincli poa nominate -h <existing node> --from <moniker> --moniker <nominee moniker> --pwd <passphrase file> <nominee address>
 
 But we can also do it interactively. **On the existing instance (node0), run
-the following interactive ``monetcli`` session**:
+the following interactive ``botcoincli`` session**:
 
 .. code:: bash
 
-    monetcli i
+    botcoincli i
     __  __                          _        ____   _       ___
    |  \/  |   ___    _ __     ___  | |_     / ___| | |     |_ _|
    | |\/| |  / _ \  | '_ \   / _ \ | __|   | |     | |      | |
@@ -96,14 +96,14 @@ the following interactive ``monetcli`` session**:
 
    Mode:        Interactive
    Data Dir:    /home/user/.monet
-   Config File: /home/user/.monet/monetcli.toml
+   Config File: /home/user/.monet/botcoincli.toml
    Keystore:    /home/user/.monet/keystore
 
     Commands:
      [...]
 
 
-    monetcli$ poa nominate
+    botcoincli$ poa nominate
     ? From:  node0
     ? Passphrase:  [hidden]
     ? Nominee:  0x960c13654c477ac1d2d7f8fc7ae84d93a2225257
@@ -111,7 +111,7 @@ the following interactive ``monetcli`` session**:
 
     You (0xa10aae5609643848ff1bceb76172652261db1d6c) nominated 'node1' (0x960c13654c477ac1d2d7f8fc7ae84d93a2225257)
 
-    monetcli$ poa nomineelist
+    botcoincli$ poa nomineelist
     .------------------------------------------------------------------------------.
     | Moniker |                  Address                   | Up Votes | Down Votes |
     |---------|--------------------------------------------|----------|------------|
@@ -124,14 +124,14 @@ in the whitelist, so let's cast a vote.
 
 .. code:: bash
 
-    monetcli$ poa whitelist
+    botcoincli$ poa whitelist
     .------------------------------------------------------.
     | Moniker |                  Address                   |
     |---------|--------------------------------------------|
     | Node0   | 0xa10aae5609643848ff1bceb76172652261db1d6c |
     '------------------------------------------------------'
 
-    monetcli$ poa vote
+    botcoincli$ poa vote
     ? From:  node0
     ? Passphrase:  [hidden]
     ? Nominee:  0x960c13654c477ac1d2d7f8fc7ae84d93a2225257
@@ -139,7 +139,7 @@ in the whitelist, so let's cast a vote.
     You (0xa10aae5609643848ff1bceb76172652261db1d6c) voted 'Yes' for '0x960c13654c477ac1d2d7f8fc7ae84d93a2225257'.
     Election completed with the nominee being 'Accepted'.
 
-    monet$ poa whitelist
+    botcoin$ poa whitelist
     .------------------------------------------------------.
     | Moniker |                  Address                   |
     |---------|--------------------------------------------|
@@ -152,10 +152,10 @@ Finaly node1 made it into the whitelist.
 Starting the Node
 -----------------
 
-To start node1, run the simple ``monetd run`` command. You should be able see
+To start node1, run the simple ``botcoin run`` command. You should be able see
 the JoinRequest going through consensus, and being accepted by the PoA
 contract.
 
 .. code:: bash
 
-    $ monetd run
+    $ botcoin run

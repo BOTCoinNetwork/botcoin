@@ -3,7 +3,7 @@
 Overview
 ========
 
-This document describes the tools for operating a Monet Toolchain node, and a
+This document describes the tools for operating a BOTCoin Tools node, and a
 couple of important concepts regarding the account model. In other documents,
 we provide guidance on using these tools to perform common tasks, as well as a
 complete reference of commands and API functions.
@@ -11,29 +11,29 @@ complete reference of commands and API functions.
 Tools
 -----
 
-Monetd
+BOTCoin
 ~~~~~~
 
 **monetd** is the server process that connects to other nodes, participates in
 the consensus algorithm, and maintains its own copy of the application state.
-Additionaly, the **giverny** program facilitates the creation of local Monet
-Toolchain networks for testing purposes. We don't expect most people to use
+Additionaly, the **giverny** program facilitates the creation of local BOTCoin
+Tools networks for testing purposes. We don't expect most people to use
 **giverny** as it is mostly a development tool.
 
-**monetd** and **giverny** are written in `Go <https://golang.org/>`__, and
+**BOTCoin** and **giverny** are written in `Go <https://golang.org/>`__, and
 reside in the same `github repository
-<https://github.com/mosaicnetworks/monetd/>`__ because they share significant
+<https://github.com/BOTCoinNetwork/botcoin/>`__ because they share significant
 source code. Please follow the :ref:`installation instructions<install_rst>` to
 get started.
 
-Monetcli
+botcoincli
 ~~~~~~~~
 
-**monetcli** is the client-side program that interacts with a running Monet
-Toolchain node, and enables users to make transfers, query accounts, deploy and
+**botcoincli** is the client-side program that interacts with a running BOTCoin
+Tools node, and enables users to make transfers, query accounts, deploy and
 call smart-contracts, or participate in the PoA governance mechanism.
-``monetcli`` is a `Node.js <https://nodejs.org/>`__ project. It can be
-installed easily with ``npm install -g monetcli``.
+``botcoincli`` is a `Node.js <https://nodejs.org/>`__ project. It can be
+installed easily with ``npm install -g botcoincli``.
 
 Accounts
 --------
@@ -41,18 +41,18 @@ Accounts
 What is an account?
 ~~~~~~~~~~~~~~~~~~~
 
-The Monet Toolchain, and thus MONET, uses the same account model as Ethereum.
+The BOTCoin Tools, and thus BOTCoin, uses the same account model as Ethereum.
 Accounts represent identities of external agents and are associated with a
 balance (and storage for Contract accounts). They rely on public key
-cryptography to sign transactions so that the EVM can securely validate the
+cryptography to sign transactions so that the BVM can securely validate the
 identity of a transaction sender.
 
 Using the same account model as Ethereum doesn’t mean that existing Ethereum
-accounts automatically have the same balance in MONET (or vice versa). In
+accounts automatically have the same balance in BOTCoin (or vice versa). In
 Ethereum, balances are denoted in Ether, the cryptocurrency maintained by the
-public Ethereum network. On the other hand, every MONET network (even a single
+public Ethereum network. On the other hand, every BOTCoin Network (even a single
 node network) maintains a completely separate ledger and may use any name for
-the corresponding coin. The official MONET token is Tenom.
+the corresponding coin. 
 
 What follows is mostly inspired from the `Ethereum
 Docs <http://ethdocs.org/en/latest/account-management.html>`__:
@@ -61,9 +61,9 @@ Accounts are objects in the EVM State. They come in two types: Externally owned
 accounts, and Contract accounts. Externally owned accounts have a balance, and
 Contract accounts have a balance and storage. The EVM State is the state of all
 accounts which is updated with every transaction. The underlying consensus
-engine ensures that every participant in a Monet Toolchain network processes
+engine ensures that every participant in a BOTCoin Network processes
 the same transactions in the same order, thereby arriving at the same State.
-The use of Contract accounts with the EVM makes it possible to deploy and use
+The use of Contract accounts with the BVM makes it possible to deploy and use
 *SmartContracts* which we will explore in another document.
 
 What is an account file?
@@ -83,7 +83,7 @@ Docs <http://ethdocs.org/en/latest/account-management.html>`__:
 Transactions
 ------------
 
-A transaction is a signed data package that contains instructions for the EVM.
+A transaction is a signed data package that contains instructions for the BVM.
 It can contain instructions to move coins from one account to another, create a
 new Contract account, or call an existing Contract account. Transactions are
 encoded using the custom Ethereum scheme, RLP, and contain the following

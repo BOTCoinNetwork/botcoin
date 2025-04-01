@@ -13,32 +13,32 @@ These can be run as follows:
 
 .. code:: bash
 
-    [...]/monetd$ make test
+    [...]/botcoin$ make test
 
-    Monetd Tests
+    Botcoin Tests
 
-    ?       .../monetd/cmd/giverny  [no test files]
-    ?       .../monetd/cmd/giverny/commands [no test files]
-    ?       .../monetd/cmd/giverny/commands/keys    [no test files]
-    ?       .../monetd/cmd/giverny/commands/network [no test files]
-    ?       .../monetd/cmd/giverny/commands/server  [no test files]
-    ?       .../monetd/cmd/giverny/commands/transactions    [no test files]
-    ?       .../monetd/cmd/giverny/configuration    [no test files]
-    ?       .../monetd/cmd/monetd   [no test files]
-    ?       .../monetd/cmd/monetd/commands  [no test files]
-    ?       .../monetd/cmd/monetd/commands/config   [no test files]
-    ?       .../monetd/cmd/monetd/commands/keys     [no test files]
-    ok      .../monetd/src/babble   0.077s
-    ok      .../monetd/src/common   0.003s
-    ?       .../monetd/src/config   [no test files]
-    ?       .../monetd/src/configuration    [no test files]
-    ?       .../monetd/src/contract [no test files]
-    ?       .../monetd/src/crypto   [no test files]
-    ?       .../monetd/src/docker   [no test files]
-    ?       .../monetd/src/files    [no test files]
-    ?       .../monetd/src/peers    [no test files]
-    ?       .../monetd/src/types    [no test files]
-    ?       .../monetd/src/version  [no test files]
+    ?       .../botcoin/cmd/giverny  [no test files]
+    ?       .../botcoin/cmd/giverny/commands [no test files]
+    ?       .../botcoin/cmd/giverny/commands/keys    [no test files]
+    ?       .../botcoin/cmd/giverny/commands/network [no test files]
+    ?       .../botcoin/cmd/giverny/commands/server  [no test files]
+    ?       .../botcoin/cmd/giverny/commands/transactions    [no test files]
+    ?       .../botcoin/cmd/giverny/configuration    [no test files]
+    ?       .../botcoin/cmd/botcoin   [no test files]
+    ?       .../botcoin/cmd/botcoin/commands  [no test files]
+    ?       .../botcoin/cmd/botcoin/commands/config   [no test files]
+    ?       .../botcoin/cmd/botcoin/commands/keys     [no test files]
+    ok      .../botcoin/src/babble   0.077s
+    ok      .../botcoin/src/common   0.003s
+    ?       .../botcoin/src/config   [no test files]
+    ?       .../botcoin/src/configuration    [no test files]
+    ?       .../botcoin/src/contract [no test files]
+    ?       .../botcoin/src/crypto   [no test files]
+    ?       .../botcoin/src/docker   [no test files]
+    ?       .../botcoin/src/files    [no test files]
+    ?       .../botcoin/src/peers    [no test files]
+    ?       .../botcoin/src/types    [no test files]
+    ?       .../botcoin/src/version  [no test files]
 
     EVM-Lite Tests
 
@@ -86,22 +86,22 @@ can be run using either of the commands below. Note the different paths:
 
 .. code:: bash
 
-    [...]/monetd/e2e$ make tests
-    [...]/monetd$ make e2e
+    [...]/botcoin/e2e$ make tests
+    [...]/botcoin$ make e2e
 
 
 An individual test can be run as follows:
 
 .. code:: bash
 
-    [...]/monetd/e2e$ make test TEST=crowdfundnet
+    [...]/botcoin/e2e$ make test TEST=crowdfundnet
 
 To prevent the test net being destroyed on completion, add ``NOSTOP=nostop``.
 This allows you to interrogate the network after the test has completed:
 
 .. code:: bash
 
-    [...]/monetd/e2e$ make test TEST=transfer_03_10 NOSTOP=nostop
+    [...]/botcoin/e2e$ make test TEST=transfer_03_10 NOSTOP=nostop
 
 
 Tests output logs to ``...monetd/e2e/tests/<TESTNAME>.out``

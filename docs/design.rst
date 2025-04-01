@@ -3,103 +3,64 @@
 Design
 ======
 
-In this document we explain our implementation of the MONET Hub; in particular
-the mechanism that dictates who can participate in the consensus system, and
-how to make participants accountable for their actions. Before deliberating on
-an implementation, it is important to have a clear picture of the desired
-outcome. So we will start by reiterating the role of the Hub in MONET, and
-outline its principal requirements. We then visit the spectrum of potential
-implementations before explaining our choice of a permissioned Byzantine Fault
-Tolerant (**BFT**) consensus algorithm coupled to the Ethereum Virtual Machine
-(**EVM**). Lastly we weigh up the pros and cons of Proof of Stake (**PoS**),
-and explain our decision to implement Proof of Authoriry (**PoA**) for the time
-being.
+BOTCoin uses peer-to-peer network system technology at the bottom layer, allowing intelligent robots to become autonomous nodes in the decentralized network. It also integrates BVM to implement hardware-level smart contract programming, allowing the robot's own data and programs to be executed safely and reliably. Based on the Hashgraph consensus algorithm, It is a Directed Acyclic Graph (DAG) . Supports asynchronous processing and ⅓ of faulty/malicious nodes, ensuring both network decentralization and fast block verification.The dynamic membership mechanism supports nodes joining/leaving at any time without affecting the operation of the entire network. Fast Sync supports new nodes to quickly load from the tip of the chain without loading the entire network history.Combining the above advantages，BOTCoin can be easily run on robots。
 
-MONET and the MONET Hub
+BOTCoin and the BOTCoin Hub
 -----------------------
 
-MONET’s mission is to boost the adoption of peer-to-peer architectures by
-enabling mobile devices to connect directly to one another in dynamic ad-hoc
-networks. We believe that a new generation of applications will emerge from
-this technology. The real force behind MONET, which makes it original and
-disruptive, is the concept of **Mobile Ad-Hoc Blockchains**, and the
-open-source software which implements it; particularly Babble, the powerful
-consensus algorithm which is suitable for mobile deployments due to its speed,
-bandwidth efficiency, and leaderlessness.
+BOTCoin is a distributed intelligent robot network that aims to fully explore the ecological value of intelligent robots, such as the surplus value of intelligent robots, safe division of labor and collaboration, etc.As the main force of social production in the next wave of technological innovation, robots will face new technical and socio-economic issues, such as robot data security and privacy, production distribution, or excess computing power of robots.Therefore, we need a blockchain node network that can run inside a robot to solve data security and privacy issues at the hardware level, solve the social distribution mechanism that does not require trust at the hardware level (in an environment where artificial intelligence replaces human work), and solve the problem of excess computing power caused by the continuous updating and iteration of robots.It is worth sharing that the BOTCoin network can simultaneously solve the above problems. The network initially relied on Babble, a consensus communication protocol suitable for deployment on low-energy mobile devices, and integrated our improved BVM, which can achieve both lightweight operation on robots and hardware-level smart contract programming, based on which the crypto world can interact directly with the real world.
 
-We anticipate that many MONET applications will require a common set of
+We anticipate that many robots will require a common set of
 services to persist non-transient data, carry information across ad-hoc
 blockchains, and facilitate peer-discovery. So we set out to build the
-MONET Hub, an additional public utility that provides these services. In the
-spirit of open architecture, MONET doesn’t rely on any central authority,
-so anyone is free to implement their own alternative, but the MONET Hub is
+BOTCoin Hub, an additional public utility that provides these services. In the
+spirit of open architecture, BOTCoin doesn’t rely on any central authority,
+so anyone is free to implement their own alternative, but the BOTCoin Hub is
 there to offer a reliable, fast, and secure solution to kickstart the system.
 
-As such, the qualitative requirements of the Hub are:
+We have developed the BOTCoin Tools, a complete set of software tools for
+setting up and using the BOTCoin Hub. This includes  the software
+daemon that powers nodes on the BOTCoin Hub.
 
-+ **Speed**: It should support thousands of commands per second, with latencies
-  under one	second.
-
-+ **Finality**: Results from the hub should be definitive, without the
-  possibility of being arbitrarily overridden in the future.
-
-+ **Availability**: It should provide a continuous service in the face of
-  network failures or isolated disruptions.
-
-+ **Cost**: As we want to lower the barrier to entry for developers, using the
-  Hub should be cheaper than rolling out one’s own solution.
-
-+ **Security**: The hub should provide a trusted source of data and computation,
-  with measures guarding against information loss, data manipulation, or
-  censorship.
-
-+ **Governance**: The set of entities controlling this utility should be
-  transparent, with a mechanism to add or remove participants, and keep them
-  accountable for their actions.
-
-+ **Flexibility**: It should be possible and relatively easy to update the
-  software, recover from failures, and adapt to changes.
-
-Spectrum of possible Implementations
+Innovation and Advantage
 ------------------------------------
 
-From a simple web-service hosted on a privately-owned server, to a public
-global blockchain like Ethereum, there are many potential ways to implement
-this service. However, given our requirements, a simple server scores pretty
-low in all categories (except perhaps speed and flexibility), and global public
-blockchains are too slow, too hard to update, and usually provide only
-probabilistic finality, which is not acceptable.
++ **Asynchronous**:Participants have the freedom to process commands at different times.
 
-Somewhere in the middle lies a category of distributed systems consisting of
-relatively small clusters of servers maintaining identical copies of an
-application via sophisticated communication routines and consensus algorithms.
-Within this category, there are instances where the entire cluster is
-controlled by a single entity, and others where each replica is controlled
-by a different entity.
++ **Leaderless**: No participant plays a special role.
 
-Modern blockchain projects, including cryptocurrencies like Facebook’s Libra
-and the Cosmos Atom, adopt the second variant, where nodes are controlled by
-different entities. A naive implementation would render them vulnerable to
-malicious actors trying to subvert the system; hence they require strong
-consensus algorithms, commonly referred to as Byzantine Fault Tolerant (BFT),
-and a reputation system to incentivize good behavior and punish malicious
-actors.
++ **Byzantine Fault-Tolerant**: Supports one third of faulty nodes, including malicious behavior.
 
-Given the requirements stated in the previous section, we believe that the
-MONET Hub falls in the same category, and requires a permissioned BFT system.
++ **Finality**: Babble’s output can be used immediately, no need for block confirmations.
+
++ **Dynamic Membership**: Members can join or leave a Babble network without undermining security.
+
++ **Fast Sync**:  Joining nodes can sync directly to the current state of a network.
+
++ **Accountability**: Auditable history of the consensus algorithm’s output.
+
++ **Low energy consumption**:  Ability to deploy peer-to-peer network nodes on low-energy/mobile Robots.
+
++ **Hardware smart contract**: BVM implements hardware-level smart contracts, binds to Robots hardware, and enables direct interaction between the crypto world and the real world without going through an intermediary, meeting the needs of multi-BOTs and crypto collaboration.
+
++ **Exploring non-human surplus value**: Subverting the traditional capital concept, we advocate that capitalists change from exploring the surplus value of human beings to exploring the surplus value of BOT. This is in line with the new capitalist framework in the new era.
+
+Advanced Byzantine Fault-Tolerant:
+------------------------------------
+
+The underlying layer of BOTCoin relies on Babble consensus. The core of Babble is to extend Hashgraph (advanced Byzantine fault-tolerant consensus algorithm) to ensure that the distributed system remains available and consistent under adversarial conditions. Even if some nodes have arbitrary failures or malicious behavior, as long as a block with enough signatures (>2/3) and all previous blocks can be immediately considered valid.
+However, unlike traditional blockchains, it supports nodes to submit signatures and transactions asynchronously.
+So, BOTCoin ensures reliable security while having higher network efficiency.
+
 
 Ethereum with Babble Consensus
 ------------------------------
 
-We have developed the Monet Toolchain, a complete set of software tools for
-setting up and using the MONET Hub. This includes ``monetd``, the software
-daemon that powers nodes on the MONET Hub.
-
-To build ``monetd``, we used our own BFT consensus algorithm, `Babble
-<https://github.com/mosaicnetworks/babble>`__, because it is fast, leaderless,
+To build ``BOTCoin``, we used our BFT consensus algorithm, `Babble
+<https://github.com/BOTCoinNetwork/babble>`__, because it is fast, leaderless,
 and offers finality. For the application state and smart-contract platform, we
-use the Ethereum Virtual Mahcine (EVM) via `EVM-Lite
-<https://github.com/mosaicnetworks/evm-lite>`__, which is a stripped down
+use the BVM,via `BVM
+<https://github.com/BOTCoinNetwork/BVM>`__ It is Base on Ethereum Virtual Mahcine (EVM), which is a stripped down
 version of `Go-Ethereum <https://github.com/ethereum/go-ethereum>`__.
 
 The EVM is a security-oriented virtual machine specifically designed to run
@@ -109,73 +70,27 @@ structure allows to simply check if a given transaction was actually applied to
 the VM and can reduce the entire State to a single hash (merkle root) rather
 analogous to a fingerprint.
 
-The EVM is meant to be used in conjunction with a system that broadcasts
-transactions across network participants and ensures that everyone executes the
-same transactions in the same order. Ethereum uses a Blockchain and a Proof of
-Work consensus algorithm. EVM-Lite makes it easy to use any consensus system,
-including `Babble <https://github.com/mosaicnetworks/babble>`__.
+BVM refers to the "BOTCoin Virtual Machine". This is a decentralized virtual environment that executes code in a secure and consistent manner on all BOTCoin nodes. Nodes run BVM to execute smart contracts, using "Fuel" to measure the computational work required to perform operations, thereby ensuring efficient resource allocation and network security. BVM is an improvement based on Ethereum EVM.
+BVM is different from traditional "VM". Traditional "VM" only allows code to be executed within the program. BVM supports, on this basis, the expansion of the oracle protocol that can interact with hardware, so that operators (including users or BOTs) on BOTCoin can directly realize automated and secure interaction with the BOTs system hard code through BVM smart contracts.
+
 
 The remaining question is how to govern the validator-set, and what to use as a
 reputation system to punish or incentivise participants to behave correctly.
 
-PoS and PoA
+Inspire activists
 -----------
 
-A BFT consensus algorithm ensures that a distributed system remains available
-and consistent in adversarial conditions, with some nodes exhibiting arbitrary
-failures or malicious behavior, as long as a majority of participants are
-functioning correctly (actually ⅔). Any trust in the system therefore depends
-on the ability to legitimise this assumption. What is needed is a mechanism to
-ensure, with a high degree of confidence, that at least two thirds of
-participants in the consensus system are functioning correctly at all times.
-The problem is two-fold: who gets to be a participant, and how are participants
-incentivised to behave correctly? Not surprisingly, the most convincing answers
-revolve around money or reputational risk.
+The main criterion for whether a peer-to-peer network has a promising future is whether there are more active participants. Therefore, we combine the BFT consensus and propose the Proof-of-Active (POA) incentive layer consensus mechanism. The role of POA is to continuously motivate active participants to participate in the network consensus and promote active participants to be more active, so as to ensure that the network can operate efficiently without changing the degree of decentralization.
 
-In a Proof of Stake (PoS) arrangement, participants are required to lock a
-significant portion of their assets (usually the blockchain’s built-in token),
-and respect an extended un-bonding period when they want to leave. At any given
-time, the validator set is defined by the top N stakers, where N is the desired
-size of the validator-set. If they are caught undermining the network, this
-deposit is destroyed. Hence, participants are deterred from cheating.
-Additionally, participants are usually programmatically compensated for
-actively participating in securing the network. Hence they are incentivised to
-act correctly. A nice feature of PoS is that, being a very capitalistic model,
-it is relatively open; anyone can participate without asking for permission,
-as long as they put up a stake.
+Active quantification is based on: validators, Stakers, cluster nodes, etc.
 
-In Proof of Authority (PoA), the stake is tied to reputational risk. It relies
-on the natural aversion of most humans to tarnish their own reputation. The
-list of allowed validators is governed by a whitelist. The whitelist is amended
-through a voting process among existing whitelisted entities. This scheme is
-less anonymous or open than PoS but has deep roots. The trust of a PoA system
-rests on the initial group of participants because any amendment to the list
-has to gather consensus from them; so the trust (or distrust) is carried over
-as the validator-set evolves. In a system like Babble, the most serious offence
-consists in signing two different blocks at the same height. Evidence of this
-can be packaged into an irrefutable proof, and used to punish the guilty
-participants.
-
-Proof of Stake opens exciting opportunities for a variety of stakeholders, and
-these economic incentives are excellent for the industry as they drive
-innovation. That being said, we are of the opinion that it is too early to
-ascertain the resilience of PoS in the face of decisive attacks, as current
-production deployments are very recent, and the theoretical arguments alone are
-not sufficiently convincing (although they sound quite reasonable). We are
-keeping an eye on PoS systems, hoping that they withstand the test of time. In
-the meantime, we have opted to implement PoA, to roll out a reliable version of
-the MONET Hub, with an eye on extending to PoS in a coordinated software update
-later down the road.
 
 Conclusion
 ----------
 
-The MONET Hub is a pivotal utility that facilitates the creation of mobile
+The BOTCoin Hub is a pivotal utility that facilitates the creation of Robots
 ad-hoc blockchains, and the emergence of a new breed of decentralised
-applications. To maximise the performance, security, and flexibility of this
-system, we have opted to build the Monet Toolchain, a smart-contract platform
-based on the Ethereum Virtual Machine and a state-of-the-art BFT consensus
-algorithm, Babble. To govern the validator-set involved in the consensus
-algorithm, we have chosen to implement a Proof of Authority system, with the
-idea of extending to Proof of Stake when more evidence of its efficacy becomes
-available.
+Robots Network. To maximise the performance, security, and flexibility of this
+system, we have opted to build the BOTCoin Tools, a Robots Network
+based on the BVM and a state-of-the-art BFT consensus
+algorithm, Babble. 

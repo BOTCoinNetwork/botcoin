@@ -4,7 +4,7 @@ Transaction Fees
 ================
 
 Every operation that modifies the state (transfer, smart-contract creation,
-smart-contract call, etc.) carries a cost. Within the EVM, this cost is 
+smart-contract call, etc.) carries a cost. Within the BVM, this cost is 
 denominated in gas. For example, a simple transfer costs 21000 gas. When users 
 create and submit transactions, they can set the maximum amount of gas they want
 to spend, and how many ``Attoms`` (10^-18 Tenom) they are willing to pay per 
@@ -18,7 +18,7 @@ denial of service attacks.
 Distribution Among Validators
 -----------------------------
 
-Every transaction applied to the EVM is associated with a coinbase address 
+Every transaction applied to the BVM is associated with a coinbase address 
 (possibly empty), which receives the transaction fee. In monetd, we have 
 implemented a system that fairly and securily distributes fees among validators.
 
@@ -39,14 +39,14 @@ must set the gas price to a value greater or equal to that node's minimum gas
 price. Note that this filtering is done at the service layer, so it will not
 prevent other nodes from including cheaper transactions. 
 
-Tenom Denominations
+BOC Denominations
 -------------------
 
-Internally EVM-Lite balances, values and gas prices are denominated in 
-``Attom``. All user interactions are denoted in Tenom. There are ``10^18`` 
-attoms in one Tenom.
+Internally BVM balances, values and gas prices are denominated in 
+``Attom``. All user interactions are denoted in BOC. There are ``10^18`` 
+attoms in one BOC.
 
-The Tenom symbol is: Ŧ although for user entry a capital T would usually be used. 
+The BOC symbol is: BOC although for user entry a capital BOC would usually be used. 
 
 SI Prefixes:
 
@@ -54,7 +54,7 @@ SI Prefixes:
 
     | Prefix | Opt 1  | Opt 2      |Quickest Symbol |  Quick Symbol | Formal Symbol | Value            |
     |--------|--------|------------|----------------|---------------|---------------|------------------|
-    |        | Tenom  | Tenom      | T              | T             | Ŧ             | 1                |
+    |        | BOC    | BOC        | BOC            | BOC           | BOC           | 1                |
     | milli  | Millom | Millitenom | m              | mT            | mŦ            | 10^-3            |
     | micro  | Microm | Microtenom | u              | uT            | μŦ            | 10^-6            |
     | nano   | Nanom  | Nanotenom  | n              | nT            | nŦ            | 10^-9            |
@@ -63,15 +63,3 @@ SI Prefixes:
     | atto   | Attom  | Attotenom  | a              | aT            | aŦ            | 10^-18           |
 
 
-The Tenom symbol is U+0166 in unicode. `&#x166;` is the HTML entity for &#x166;.
-
-In Linux to directly enter a unicode character, hold the left control key and 
-shift, then press u. An underscore u character will appear. Press 0166 then
-space and the Ŧ character will appear. 
-
-On windows, press and hold ALT and type 0166. 
-
-In GOLANG we can just include the character literal, but `"\u0166"` will also 
-work. 
-
-In JS we can also use `\u0166`.

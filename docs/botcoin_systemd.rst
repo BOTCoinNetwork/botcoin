@@ -1,6 +1,6 @@
-.. _monetd_systemd_rst:
+.. _botcoin_systemd_rst:
 
-Monetd Systemd Service
+Botcoin Systemd Service
 ----------------------
 
 Here is an example service file defining a ``systemd`` service for monetd:

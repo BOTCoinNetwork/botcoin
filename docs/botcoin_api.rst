@@ -1,12 +1,12 @@
-.. _monet_api_rst:
+.. _botcoin_api_rst:
 
-Monetd API
+Botcoin API
 ==========
 
-``monetd`` exposes an HTTP API at the address specified by the ``--api-listen``
+``botcoin`` exposes an HTTP API at the address specified by the ``--api-listen``
 flag. This document contains the API specification with some basic examples
 using curl. For API clients (javascript libraries, CLI, and GUI), please refer
-to `Monet CLI <https://github.com/mosaicnetworks/monetcli>`__
+to `botcoinclt <https://github.com/BOTCoinNetwork/botcoincli>`__
 
 Get Account
 -----------
@@ -42,7 +42,7 @@ Example:
 Call
 ----
 
-Call a smart-contract READONLY function. These calls will NOT modify the EVM
+Call a smart-contract READONLY function. These calls will NOT modify the BVM
 state, and the data does NOT need to be signed.
 
 .. code:: http

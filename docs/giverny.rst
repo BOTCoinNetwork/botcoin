@@ -122,7 +122,7 @@ Example with a network specified:
     Giverny KeyStore Dir    : /home/user/.giverny/networks/node7/keystore
     Peers JSON              : /home/user/.giverny/networks/node7/peers.json
     Genesis JSON            : /home/user/.giverny/networks/node7/genesis.json
-    Monetd TOML             : /home/user/.giverny/networks/node7/monetd.toml
+    Botcoin TOML             : /home/user/.giverny/networks/node7/botcoin.toml
     Network TOML            : /home/user/.giverny/networks/node7/network.toml
 
 New
@@ -233,7 +233,7 @@ A "built" network will have a file structure like this:
     │   ├── Chloe.txt
     │   ├── Danu.json
     │   ├── Danu.txt
-    ├── monetd.toml
+    ├── botcoin.toml
     ├── network.toml
     └── peers.json
 

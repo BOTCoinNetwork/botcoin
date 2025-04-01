@@ -3,17 +3,17 @@
 POA Overview
 ============
 
-As mentionned in the :ref:`design document<design_rst>`, the MONET Hub relies on
-a Proof of Authority (POA) system to control the validator-set of the underlying
+As mentionned in the :ref:`design document<design_rst>`, the BOTCoin Hub relies on
+a Proof of Active (POA) system to control the validator-set of the underlying
 consensus system (Babble). Here we explain how this system is implemented in 
-monetd.
+botcoin.
 
 Whitelist
 ---------
 
 The whitelist is a list of members who are allowed to run a validator node in
 the network. Upon processing an ``Internal Transaction`` from Babble (related to
-a join request), monetd queries the whitelist and accepts the request if and
+a join request), botcoin queries the whitelist and accepts the request if and
 only if the corresponding address is whitelisted. For more information about
 ``Internal Transactions`` and Babble's membership protocol please refer to 
 `Babble docs <https//docs.babble.io/en/latest/dynamic_membership.html>`__.
@@ -40,22 +40,22 @@ To add an address to the whitelist, someone **already on the whitelist** has to
 **yes** vote on that nomination. When the nomination collects yes votes from 
 everyone, the address is automatically moved from the nominee list to the 
 whitelist. This logic is implemented in the POA smart-contract, and can be
-called using ``monetcli``.
+called using ``botcoincli``.
 
-``monetcli whitelist`` displays the current whitelist.
+``botcoincli whitelist`` displays the current whitelist.
 
-``monetcli nominee list`` displays the current nomineelist.
+``botcoincli nominee list`` displays the current nomineelist.
 
-``monetcli nominee vote`` is used to cast a vote for a nomination.
+``botcoincli nominee vote`` is used to cast a vote for a nomination.
 
 Evicting Validators
 -------------------
 
 A similar voting mechanism exists for removing addresses from the whitelist:
 
-``monetcli evictee list``
-``monetcli evictee new``
-``monetcli evictee vote``
+``botcoincli evictee list``
+``botcoincli evictee new``
+``botcoincli evictee vote``
 
 With the dirrence that when an address is removed from the whitelist, the 
 corresponding Babble validator is automatically removed from the validator-set

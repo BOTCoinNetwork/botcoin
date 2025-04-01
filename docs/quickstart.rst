@@ -4,7 +4,7 @@ Getting Started
 ===============
 
 In this document we explain how to run a single node and how to use
-``monetcli`` to interact with it. In another section, we will explain how to
+``botcoincli`` to interact with it. In another section, we will explain how to
 join an existing network. For details about any command, please refer to the
 :ref:`specification<monetd_commands_rst>`.
 
@@ -15,9 +15,9 @@ In short, run the following three commands to start a standalone node:
 
 .. code::
 
-    $ monetd keys new node0
-    $ monetd config build node0
-    $ monetd run
+    $ botcoin keys new node0
+    $ botcoin config build node0
+    $ botcoin run
 
 The ``keys new`` command will prompt us for a password, and generate a new
 encrypted keyfile in the default keystore ``~/.monet/keystore``. We identified

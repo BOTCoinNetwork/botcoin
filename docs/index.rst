@@ -13,12 +13,12 @@
    quickstart.rst
    join.rst
    fees.rst
-   monetd_api.rst
+   botcoin_api.rst
    poa_overview.rst
    poa_smartcontract.rst
-   monetd_systemd.rst
-   monetd_configuration.rst
-   monetd_commands.rst
+   botcoin_systemd.rst
+   botcoin_configuration.rst
+   botcoin_commands.rst
    giverny.rst
    giverny_examples.rst
    licence.rst

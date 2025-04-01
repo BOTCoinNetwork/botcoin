@@ -3,7 +3,7 @@
 Licences
 ========
 
-The Monet Toolchain is an open source project, licensed under the `MIT License
+The BOTCoin Tools is an open source project, licensed under the `MIT License
 <https://opensource.org/licenses/MIT>`__ (`TLDR version
 <https://tldrlegal.com/license/mit-license>`__). The software is provided as-is
 and we are not liable. We use many other libraries to build the Toolchain. This
@@ -12,13 +12,13 @@ the Monet Toolchain. Glice reports on the licences used within a golang
 project.
 
 The 3 tables are for the `monetd <https://github.com/mosaicnetworks/monetd>`__,
-`EVM-Lite <https://github.com/mosaicnetworks/evm-lite>`__ and `Babble
-<https://github.com/mosaicnetworks/babble>`__ repositories respectively. These
+`EVM-Lite <https://github.com/BOTCoinNetwork/BVM>`__ and `Babble
+<https://github.com/BOTCoinNetwork/babble>`__ repositories respectively. These
 tables are the output from ``glice -r``, which only looks one level deep. These
 tables are for information only and are not legal advice.
 
 
-``monetd``:
+``botcoin``:
 
 ..
 
@@ -63,7 +63,7 @@ tables are for information only and are not legal advice.
     | gopkg.in/yaml.v2                            |                                                     |              |
     +---------------------------------------------+-----------------------------------------------------+--------------+
 
-``EVM-Lite``:
+``BVM``:
 
 ..
 

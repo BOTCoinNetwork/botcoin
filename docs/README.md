@@ -1,9 +1,9 @@
-# MonetD Documents
+# botcoin Documents
 
 ## ReadTheDocs 
 
 Full documentation is availble on
-[ReadTheDocs](https://monetd.readthedocs.io/en/latest/). For most users it is
+[ReadTheDocs](https://botcoin.network/docs/en/latest/). For most users it is
 easiest to access the docs directly from there. 
 
 ## Building Documentation
@@ -11,12 +11,12 @@ easiest to access the docs directly from there.
 To build help type:
 
 ```bash
-[...]/monetd/docs$ make html
+[...]/botcoin/docs$ make html
 ```
 
 To refresh the included screen outputs:
 
 ```bash
-[...]/monetd/docs$ make screenshots
+[...]/botcoin/docs$ make screenshots
 ```
  
